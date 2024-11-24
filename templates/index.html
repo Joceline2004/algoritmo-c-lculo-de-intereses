@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cálculo de Intereses</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Cálculo de Intereses</h1>
+        <form method="POST">
+            <label for="tipoDeuda">Tipo de Deuda:</label>
+            <select name="tipoDeuda" id="tipoDeuda" required>
+                <option value="Tarjeta">Tarjeta</option>
+                <option value="Crédito">Crédito</option>
+                <option value="Contrato">Contrato</option>
+            </select>
+
+            <label for="capital">Capital:</label>
+            <input type="number" id="capital" name="capital" step="0.01" required>
+
+            <label for="tasaInteres">Tasa de Interés (%):</label>
+            <input type="number" id="tasaInteres" name="tasaInteres" step="0.01" required>
+
+            <label for="tiempo">Tiempo (en años):</label>
+            <input type="number" id="tiempo" name="tiempo" step="0.01" required>
+
+            <label for="tipoInteres">Tipo de Interés:</label>
+            <select name="tipoInteres" id="tipoInteres" required>
+                <option value="Simple">Simple</option>
+                <option value="Compuesto">Compuesto</option>
+            </select>
+
+            <button type="submit">Calcular</button>
+        </form>
+
+        {% if interes is not none %}
+        <div class="result">
+            <h2>Interés Calculado:</h2>
+            <p>${{ interes | round(2) }}</p>
+        </div>
+        {% endif %}
+    </div>
+</body>
+
+</html>
